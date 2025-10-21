@@ -17,7 +17,9 @@ public class Oferta {
 	}
 	
 	public double aplicarDescuento() {
-		
+		double precio = localidadAsociada.getPrecio();
+		double rst = precio * porcentajeDescuento / 100;
+		return rst;
 	}
 
 	public int getFechaInicio() {
@@ -53,12 +55,10 @@ public class Oferta {
 	public boolean isEsActiva() {
 		return esActiva;
 	}
-
-
-	public void setEsActiva(boolean esActiva) {
-		this.esActiva = esActiva;
+	public void desactivarDescuento() {
+		this.esActiva = false;
+		localidadAsociada.setOferta(null);
 	}
-
 
 	public Localidad getLocalidadAsociada() {
 		return localidadAsociada;

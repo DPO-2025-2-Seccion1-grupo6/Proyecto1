@@ -17,7 +17,7 @@ public class Localidad {
 	private int numAsiento = 1;
 	private char fila = 'A';
 	private int capacidad;
-	private Oferta oferta;
+	private Oferta oferta = null;
 	
 	public Localidad(Evento evento, double precio, String caracteristicas, boolean esNumerada, boolean disponible, int capacidad)throws Exception 
 	{
@@ -29,7 +29,7 @@ public class Localidad {
 			this.asientosDisponibles = new ArrayList<Asiento>();
 			this.asientosOcupados = new ArrayList<Asiento>();
 		}
-		this.finanzas = new Finanzas(this.precio, this);
+		this.finanzas = new Finanzas(this.precio, this, oferta);
 		this.eventoAsociado = evento;
 		this.capacidad = capacidad;
 	}
@@ -38,6 +38,9 @@ public class Localidad {
 	}
 	public List<Asiento>getAsientosOcupados() {
 		return asientosOcupados;
+	}
+	public void asociarOferta(Oferta oferta) {
+		this.oferta = oferta;
 	}
 	public void reservar(Asiento asiento) {
 		if(esNumerada == true) {
