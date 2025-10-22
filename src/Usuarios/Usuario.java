@@ -23,7 +23,7 @@ public Usuario (String id, String nombre, String email, String login, String pas
 	this.fechaRegistro= LocalDateTime.now();
 
 }
-public boolean autenticador(String login, String password) {
+public boolean autenticar(String login, String password) {
 	return Objects.equals(this.login, login) && Objects.equals(this.password, password);
 }
 

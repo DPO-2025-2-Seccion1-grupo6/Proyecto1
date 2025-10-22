@@ -89,7 +89,7 @@ public class SistemaMain {
         HashSet<Usuario> usuarios = repo.cargarUsuarios();
 
         for (Usuario u : usuarios) {
-            if (u.autenticador(login, pass)) {
+            if (u.autenticar(login, pass)) {
                 usuarioActual = u;
                 System.out.println("✅ Bienvenido " + u.getNombre() + " (" + u.getClass().getSimpleName() + ")");
                 return true;
